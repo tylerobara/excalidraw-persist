@@ -6,7 +6,6 @@ A self-hostable app with server-side persistence and multi-boards based on Excal
 
 <img width="1440" alt="image" src="https://github.com/user-attachments/assets/88510de0-a231-4a7b-83e2-e78a010296d5" />
 
-
 ## Features
 
 - 💾 Server-side persistence of drawings
@@ -14,7 +13,9 @@ A self-hostable app with server-side persistence and multi-boards based on Excal
 - 🗑️ Trash functionality for deleted boards
 - 🗃️ SQLite database for simple deployment
 
-
+## TODO
+- [ ] Support file uploads
+- [ ] Collaboration support
 
 ## Development
 
@@ -25,7 +26,6 @@ This project uses pnpm workspaces as a monorepo. Make sure to create a `.env` fi
 - [Node.js](https://nodejs.org/) (v16 or newer)
 - [pnpm](https://pnpm.io/) (v7 or newer)
 - Git
-
 
 ```bash
 # Clone the repository
@@ -76,7 +76,6 @@ or run
 
 1. `docker run -p 80:80 -p 4000:4000 ghcr.io/ozencb/excalidraw-persist:latest`
 2. Access the application at `http://localhost` (or your server's IP/domain)
-
 
 #### Using npm Scripts
 
@@ -168,10 +167,6 @@ The application stores all data in an SQLite database file. To backup your data:
    ```
 
 2. **Manual deployment**: Copy the SQLite database file from your configured location
-
-## TODO
-- [ ] Support file uploads
-- [ ] Collaboration support
 
 ## License
 
