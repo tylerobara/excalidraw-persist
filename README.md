@@ -66,13 +66,17 @@ The easiest way to deploy Excalidraw Persist is using Docker and Docker Compose.
    git clone https://github.com/ozencb/excalidraw-persist.git
    cd excalidraw-persist
    ```
-
 2. Start the containers:
    ```bash
    docker-compose up -d
    ```
-
 3. Access the application at `http://localhost` (or your server's IP/domain)
+
+or run
+
+1. `docker run -p 80:80 -p 4000:4000 ghcr.io/ozencb/excalidraw-persist:latest`
+2. Access the application at `http://localhost` (or your server's IP/domain)
+
 
 #### Using npm Scripts
 
@@ -114,8 +118,8 @@ server:
 
 #### Prerequisites
 
-- Node.js (v16 or newer)
-- pnpm (v7 or newer)
+- Node.js (v22 or newer)
+- pnpm (v10 or newer)
 
 #### Deployment Steps
 
@@ -128,19 +132,16 @@ server:
    # Configure your .env file
    pnpm build
    ```
-
 2. Start the server:
    ```bash
    pnpm start
    ```
-
 3. For production, consider using a process manager like PM2:
    ```bash
    npm install -g pm2
    pm2 start pnpm --name "excalidraw-persist" -- start
    pm2 save
    ```
-
 4. Set up a reverse proxy with Nginx or Apache for proper SSL termination
 
 ### Troubleshooting
@@ -150,11 +151,9 @@ If you encounter issues:
 1. Check the application logs:
    - Docker: `docker-compose logs` or `pnpm docker:logs`
    - Manual: Check the console output where the app is running
-
 2. Verify network connectivity:
    - Ensure ports are properly exposed and not blocked by firewalls
    - Verify the server is accessible from the client
-
 3. Database issues:
    - Check that the SQLite database file is being created
    - Ensure the application has write permissions to the database directory
