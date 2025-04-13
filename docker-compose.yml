@@ -1,37 +1,16 @@
-version: '3.8'
-
 services:
-  client:
-    build:
-      context: .
-      dockerfile: ./packages/client/Dockerfile
+  excalidraw:
+    image: ghcr.io/ozencb/excalidraw-persist:latest
     ports:
-      - '80:80'
-    depends_on:
-      - server
-    restart: unless-stopped
-    networks:
-      - excalidraw-network
-
-  server:
-    build:
-      context: .
-      dockerfile: ./packages/server/Dockerfile
-    ports:
-      - '4001:4000'
+      - '4002:80' # Web client - change first number if needed
+      - '4001:4000' # Server API - matches original setup
     volumes:
-      - ./data:/app/data
+      - data:/app/data
     environment:
       - PORT=4000
       - NODE_ENV=production
       - DB_PATH=/app/data/database.sqlite
     restart: unless-stopped
-    networks:
-      - excalidraw-network
-
-networks:
-  excalidraw-network:
-    driver: bridge
 
 volumes:
   data:
