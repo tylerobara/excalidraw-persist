@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "pnpm -r run dev",
     "build": "pnpm -r run build",
-    "start": "pnpm --filter \"./packages/server\" run start",
     "lint": "pnpm -r run lint",
     "lint:fix": "pnpm -r run lint:fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && pnpm -r run format",

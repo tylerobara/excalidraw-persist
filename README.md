@@ -23,8 +23,8 @@ This project uses pnpm workspaces as a monorepo. Make sure to create a `.env` fi
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v16 or newer)
-- [pnpm](https://pnpm.io/) (v7 or newer)
+- [Node.js](https://nodejs.org/) (v22 or newer)
+- [pnpm](https://pnpm.io/) (v10 or newer)
 - Git
 
 ```bash
@@ -43,9 +43,6 @@ pnpm dev
 
 # Build for production
 pnpm build
-
-# Start production server
-pnpm start
 ```
 
 ## Deployment Options
