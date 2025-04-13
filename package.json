@@ -1,7 +1,7 @@
 {
   "name": "excalidraw-persist",
   "version": "1.0.0",
-  "description": "Self-hostable Excalidraw with real-time collaboration, server-side persistence, and multi-boards",
+  "description": "Self-hostable Excalidraw server-side persistence, and multi-boards",
   "private": true,
   "scripts": {
     "dev": "pnpm -r run dev",
