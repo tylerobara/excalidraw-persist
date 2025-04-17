@@ -35,20 +35,6 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
     [setExcalidrawAPI]
   );
 
-  const checkIfElementsAreSame = (
-    elements: readonly ExcalidrawElement[],
-    newElements: readonly ExcalidrawElement[]
-  ) => {
-    if (elements.length !== newElements.length) {
-      return false;
-    }
-
-    return elements.every(
-      (element, index) =>
-        element.id === newElements[index].id && element.isDeleted === newElements[index].isDeleted
-    );
-  };
-
   const handleChange = useCallback(
     (updatedElements: readonly ExcalidrawElement[], appState: AppState) => {
       if (updatedElements.length === 0) {
@@ -56,9 +42,6 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
       }
 
       debouncedHandleChange(() => {
-        if (checkIfElementsAreSame(elements, updatedElements)) {
-          return;
-        }
         originalHandleChange(updatedElements);
       });
 
@@ -66,7 +49,7 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
         setAppTheme(appState.theme);
       }
     },
-    [originalHandleChange, currentAppTheme, setAppTheme, elements]
+    [originalHandleChange, currentAppTheme, setAppTheme]
   );
 
   useEffect(() => {
