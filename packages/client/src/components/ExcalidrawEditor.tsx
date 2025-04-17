@@ -8,10 +8,15 @@ import Loader from './Loader';
 import { useTheme } from '../contexts/ThemeProvider';
 import { ExcalidrawElement } from '@excalidraw/excalidraw/element/types';
 import logger from '../utils/logger';
+import Utils from '../utils';
 
 interface ExcalidrawEditorProps {
   boardId: string;
 }
+
+const debouncedHandleChange = Utils.debounce((f: () => void) => {
+  f();
+}, 500);
 
 const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -30,15 +35,34 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
     [setExcalidrawAPI]
   );
 
+  const checkIfElementsAreSame = (
+    elements: readonly ExcalidrawElement[],
+    newElements: readonly ExcalidrawElement[]
+  ) => {
+    if (elements.length !== newElements.length) {
+      return false;
+    }
+
+    return elements.every((element, index) => element.id === newElements[index].id);
+  };
+
   const handleChange = useCallback(
     (updatedElements: readonly ExcalidrawElement[], appState: AppState) => {
-      originalHandleChange(updatedElements);
+      if (updatedElements.length === 0) {
+        return;
+      }
+
+      if (checkIfElementsAreSame(elements, updatedElements)) {
+        return;
+      }
+
+      debouncedHandleChange(() => originalHandleChange(updatedElements));
 
       if (appState?.theme && appState.theme !== currentAppTheme) {
         setAppTheme(appState.theme);
       }
     },
-    [originalHandleChange, currentAppTheme, setAppTheme]
+    [originalHandleChange, currentAppTheme, setAppTheme, elements]
   );
 
   useEffect(() => {
