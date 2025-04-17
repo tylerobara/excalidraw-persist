@@ -43,7 +43,10 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
       return false;
     }
 
-    return elements.every((element, index) => element.id === newElements[index].id);
+    return elements.every(
+      (element, index) =>
+        element.id === newElements[index].id && element.isDeleted === newElements[index].isDeleted
+    );
   };
 
   const handleChange = useCallback(
