@@ -55,11 +55,12 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
         return;
       }
 
-      if (checkIfElementsAreSame(elements, updatedElements)) {
-        return;
-      }
-
-      debouncedHandleChange(() => originalHandleChange(updatedElements));
+      debouncedHandleChange(() => {
+        if (checkIfElementsAreSame(elements, updatedElements)) {
+          return;
+        }
+        originalHandleChange(updatedElements);
+      });
 
       if (appState?.theme && appState.theme !== currentAppTheme) {
         setAppTheme(appState.theme);
