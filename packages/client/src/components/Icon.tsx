@@ -19,10 +19,10 @@ const Trash = ({ className }: IconComponentProps) => {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         transform="translate(3 2)"
       >
         <path d="m2.5 2.5h10v12c0 1.1045695-.8954305 2-2 2h-6c-1.1045695 0-2-.8954305-2-2zm5-2c1.0543618 0 1.91816512.81587779 1.99451426 1.85073766l.00548574.14926234h-4c0-1.1045695.8954305-2 2-2z" />
@@ -45,10 +45,10 @@ const Close = ({ className }: IconComponentProps) => {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="m7.5 7.5 6 6" />
         <path d="m13.5 7.5-6 6" />
@@ -68,10 +68,10 @@ const Plus = ({ className }: IconComponentProps) => {
     >
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path d="m5.5 10.5h10" />
         <path d="m10.5 5.5v10" />
