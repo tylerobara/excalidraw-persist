@@ -123,9 +123,9 @@ const ExcalidrawEditor = ({ boardId }: ExcalidrawEditorProps) => {
           excalidrawAPI={handleExcalidrawAPI}
           UIOptions={{
             canvasActions: {
-              saveToActiveFile: false,
+              saveToActiveFile: true,
               saveAsImage: true,
-              export: true,
+              export: false,
               loadScene: false,
             },
           }}
